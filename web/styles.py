@@ -3,30 +3,31 @@ import streamlit as st
 
 SIDEBAR_CSS = """
 <style>
-    /* Hide the collapse button */
-    [data-testid="collapsedControl"] {
-        display: none !important;
-    }
-    /* Hide expand button when collapsed */
-    button[kind="headerNoPadding"] {
-        display: none !important;
-    }
     /* Force sidebar to always be visible and fixed width */
     [data-testid="stSidebar"] {
         min-width: 300px !important;
         max-width: 300px !important;
+        position: relative !important;
     }
+    
+    /* Ensure sidebar is always displayed, whether expanded or collapsed */
     [data-testid="stSidebar"][aria-expanded="false"] {
         display: block !important;
         min-width: 300px !important;
+        max-width: 300px !important;
         margin-left: 0 !important;
+        visibility: visible !important;
     }
-    /* Hide any collapse arrow/chevron */
-    [data-testid="stSidebar"] button[kind="header"] {
-        display: none !important;
+    
+    [data-testid="stSidebar"][aria-expanded="true"] {
+        display: block !important;
+        min-width: 300px !important;
+        max-width: 300px !important;
     }
-    .st-emotion-cache-1gwvy71 {
-        display: none !important;
+    
+    /* Allow the collapse/expand button to work */
+    [data-testid="collapsedControl"] {
+        display: block !important;
     }
 </style>
 """
